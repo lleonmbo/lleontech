@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lleon Tech Support | Soporte Profesional</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            /* ===== COLORES DEL LOGO ===== */
+            --azul-oscuro: #001f52;      /* Azul marino del logo */
+            --naranja: #ff7a2b;          /* Naranja vibrante del logo */
+            --gris-claro: #f5f5f5;       /* Gris muy claro */
+            --gris-medio: #999999;       /* Gris medio */
+            --gris-logo: #a0a0a0;        /* Gris del logo */
+            /* ===== COLORES COMPLEMENTARIOS ===== */
+            --negro: #000000;
+            --blanco: #ffffff;
+            --borde-suave: #e8e8e8;
+            --sombra: 0 4px 20px rgba(0, 31, 82, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--negro);
+            background-color: var(--blanco);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER / NAV ===== */
+        .header {
+            background: var(--blanco);
+            border-bottom: 1px solid var(--borde-suave);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 8px rgba(0, 31, 82, 0.05);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Logo redondo en header */
+        .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--azul-oscuro);
+            box-shadow: 0 2px 8px rgba(0, 31, 82, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--negro);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--naranja);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--naranja);
+        }
+
+        .phone-header {
+            background: var(--azul-oscuro);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 31, 82, 0.2);
+        }
+
+        .phone-header:hover {
+            background: var(--naranja);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 122, 43, 0.3);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 50%, #fff8f3 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 31, 82, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Logo redondo grande en hero */
+        .hero .logo-grande {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--azul-oscuro);
+            margin-bottom: 25px;
+            box-shadow: 0 12px 30px rgba(0, 31, 82, 0.25);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--azul-oscuro);
+        }
+
+        .hero h1 span {
+            color: var(--naranja);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .hero .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primario {
+            background: var(--azul-oscuro);
+            color: white;
+            border-color: var(--azul-oscuro);
+            box-shadow: 0 4px 12px rgba(0, 31, 82, 0.2);
+        }
+
+        .btn-primario:hover {
+            background: var(--naranja);
+            border-color: var(--naranja);
+            box-shadow: 0 6px 18px rgba(255, 122, 43, 0.3);
+        }
+
+        .btn-secundario {
+            background: white;
+            color: var(--azul-oscuro);
+            border-color: var(--azul-oscuro);
+            box-shadow: 0 4px 12px rgba(0, 31, 82, 0.1);
+        }
+
+        .btn-secundario:hover {
+            background: var(--azul-oscuro);
+            color: white;
+            box-shadow: 0 6px 18px rgba(0, 31, 82, 0.25);
+        }
+
+        /* ===== SECCIONES ===== */
+        .seccion {
+            padding: 70px 20px;
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            color: var(--azul-oscuro);
+        }
+
+        .seccion-titulo::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--naranja) 0%, var(--azul-oscuro) 100%);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        .seccion-subtitulo {
+            text-align: center;
+            color: var(--gris-medio);
+            margin-bottom: 45px;
+            font-size: 1.1rem;
+        }
+
+        /* ===== SERVICIOS ===== */
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Permite reordenar servicios con data-order */
+        .servicio-card[data-order="1"] { order: 2; }
+        .servicio-card[data-order="2"] { order: 1; }
+        .servicio-card[data-order="3"] { order: 3; }
+        .servicio-card[data-order="4"] { order: 4; }
+        .servicio-card[data-order="5"] { order: 5; }
+        .servicio-card[data-order="6"] { order: 6; }
+
+        .servicio-card {
+            background: var(--blanco);
+            border: 2px solid var(--borde-suave);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .servicio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--naranja), var(--azul-oscuro));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 31, 82, 0.15);
+            border-color: var(--naranja);
+        }
+
+        .servicio-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* ===== ICONOS DE SERVICIOS ===== */
+        .servicio-icono {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--azul-oscuro) 0%, rgba(0, 31, 82, 0.8) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2.2rem;
+            color: white;
+            transition: all 0.3s;
+            box-shadow: 0 6px 16px rgba(0, 31, 82, 0.15);
+        }
+
+        .servicio-card:hover .servicio-icono {
+            background: linear-gradient(135deg, var(--naranja) 0%, rgba(255, 122, 43, 0.8) 100%);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .servicio-card h3 {
+            font-size: 1.3rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 12px;
+        }
+
+        .servicio-card p {
+            color: var(--gris-medio);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== PORTFOLIO / TRABAJOS ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            grid-auto-flow: dense;
+        }
+        
+        /* Permite reordenar items con data-order */
+        .portfolio-item[data-order="1"] { order: 1; }
+        .portfolio-item[data-order="2"] { order: 2; }
+        .portfolio-item[data-order="3"] { order: 3; }
+        .portfolio-item[data-order="4"] { order: 4; }
+        .portfolio-item[data-order="5"] { order: 5; }
+        .portfolio-item[data-order="6"] { order: 6; }
+        .portfolio-item[data-order="7"] { order: 7; }
+        .portfolio-item[data-order="8"] { order: 8; }
+
+        .portfolio-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: all 0.3s;
+            cursor: grab;
+            background: var(--blanco);
+            border: 2px solid var(--borde-suave);
+        }
+        
+        .portfolio-item:active {
+            cursor: grabbing;
+        }
+        
+        /* Efecto cuando se arrastra */
+        .portfolio-item.dragging {
+            opacity: 0.5;
+            transform: scale(0.95);
+        }
+        
+        .portfolio-item.drag-over {
+            border-color: var(--naranja);
+            box-shadow: 0 0 0 3px rgba(255, 122, 43, 0.2);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0, 31, 82, 0.2);
+            border-color: var(--naranja);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s;
+            display: block;
+        }
+        
+        /* Contenedor de imagen con aspecto definido */
+        .portfolio-img-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f0f4ff 0%, #fff8f3 100%);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-info {
+            padding: 25px;
+        }
+
+        .portfolio-info h4 {
+            color: var(--azul-oscuro);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .portfolio-info p {
+            color: var(--gris-medio);
+            font-size: 0.9rem;
+        }
+
+        /* ===== FORMULARIO ===== */
+        .contacto-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contacto-form input,
+        .contacto-form textarea {
+            padding: 12px 16px;
+            border: 2px solid var(--borde-suave);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .contacto-form input:focus,
+        .contacto-form textarea:focus {
+            outline: none;
+            border-color: var(--naranja);
+            box-shadow: 0 0 0 3px rgba(255, 122, 43, 0.1);
+        }
+
+        .contacto-form button {
+            align-self: center;
+        }
+
+        /* ===== SOBRE MÍ ===== */
+        .sobre-mi {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .sobre-mi-texto {
+            flex: 1;
+        }
+
+        .sobre-mi-texto h2 {
+            font-size: 2rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .sobre-mi-texto p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .sobre-mi-imagen {
+            flex: 0 0 200px;
+        }
+
+        .sobre-mi-imagen img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--azul-oscuro);
+            box-shadow: 0 12px 30px rgba(0, 31, 82, 0.2);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--azul-oscuro);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .footer .logo-footer {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--naranja);
+            margin-bottom: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .footer .contacto-directo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer a {
+            color: var(--naranja);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .sobre-mi {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+                gap: 30px;
+            }
+            .hero {
+                padding: 50px 20px;
+            }
+            .hero .logo-grande {
+                width: 150px;
+                height: 150px;
+            }
+            .sobre-mi-imagen img {
+                width: 160px;
+                height: 160px;
+            }
+            .seccion {
+                padding: 50px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Lleon Tech Suport">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#portfolio">Trabajos</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="tel:+584143611387" class="phone-header">
+                <i class="fas fa-phone-alt"></i> +58 414 3611387
+            </a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="logo.png" alt="Lleon Tech Support" class="logo-grande">
+            <h1>Soporte <span>Técnico</span> Profesional</h1>
+            <p>Soluciones para que tu negocio nunca se detenga. Atención presencial o remota con respuesta inmediata.</p>
+            <div class="cta-buttons">
+                <a href="tel:+584143611387" class="btn btn-primario"><i class="fas fa-phone-alt"></i> Llámame ahora</a>
+                <a href="https://wa.me/584143611387" target="_blank" class="btn btn-secundario"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="seccion container">
+        <h2 class="seccion-titulo">Servicios</h2>
+        <p class="seccion-subtitulo">Cada necesidad técnica tiene una solución a tu medida.</p>
+        <div class="servicios-grid" id="serviciosGrid">
+            <!-- 
+                ⭐ CÓMO REORDENAR LOS SERVICIOS:
+                Cambia el valor de data-order en cada tarjeta para reordenarlas.
+                Por ejemplo: data-order="1", data-order="2", data-order="3", data-order="4"
+            -->
+
+            <!-- SERVICIO 1: Soporte Remoto - Reordenable: data-order="1" -->
+            <div class="servicio-card" data-order="1">
+                <div class="servicio-icono">
+                    <!-- CAMBIAR ICONO: Reemplaza "fa-headset" por otro de Font Awesome -->
+                    <!-- Ejemplos: fa-phone, fa-laptop, fa-mouse, fa-desktop, fa-server, fa-cloud -->
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Soporte Remoto</h3>
+                <p>Resolución de problemas en tiempo real sin moverte de tu oficina. Conexión segura y rápida.</p>
+            </div>
+
+            <!-- SERVICIO 2: Redes y Conectividad - Reordenable: data-order="2" -->
+            <div class="servicio-card" data-order="2">
+                <div class="servicio-icono">
+                    <!-- CAMBIAR ICONO: Reemplaza "fa-network-wired" por otro de Font Awesome -->
+                    <!-- Ejemplos: fa-wifi, fa-plug, fa-ethernet, fa-signal, fa-router -->
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Redes y Conectividad</h3>
+                <p>Configuración, diagnóstico y optimización de redes cableadas e inalámbricas para máxima estabilidad.</p>
+            </div>
+
+            <!-- SERVICIO 3: Seguridad Informática - Reordenable: data-order="3" -->
+            <div class="servicio-card" data-order="3">
+                <div class="servicio-icono">
+                    <!-- CAMBIAR ICONO: Reemplaza "fa-shield-alt" por otro de Font Awesome -->
+                    <!-- Ejemplos: fa-lock, fa-shield-virus, fa-user-secret, fa-key, fa-eye-slash -->
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Seguridad Informática</h3>
+                <p>Protección contra virus, malware y accesos no autorizados. Respaldos y recuperación de datos.</p>
+            </div>
+
+            <!-- SERVICIO 4: Mantenimiento de Equipos - Reordenable: data-order="4" -->
+            <div class="servicio-card" data-order="4">
+                <div class="servicio-icono">
+                    <!-- CAMBIAR ICONO: Reemplaza "fa-tools" por otro de Font Awesome -->
+                    <!-- Ejemplos: fa-wrench, fa-hammer, fa-screwdriver, fa-cog, fa-gears -->
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Mantenimiento de Equipos</h3>
+                <p>Limpieza, actualización y reparación de PC y laptops e impresoras fiscales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO / TRABAJOS -->
+    <section id="portfolio" class="seccion container">
+        <h2 class="seccion-titulo">A que nos dedicamos</h2>
+        <p class="seccion-subtitulo">Tenemos muchas soluciones para tu empresa.</p>
+        <div class="portfolio-grid" id="portfolioGrid">
+            <!-- 
+                ⭐ CÓMO REORDENAR LOS ITEMS:
+                Cambia el valor de data-order en cada tarjeta para reordenarlas.
+                Por ejemplo: data-order="1", data-order="2", etc.
+                También puedes arrastra las tarjetas para reorganizarlas visualmente.
+            -->
+
+            <!-- TARJETA 1 - Reordenable: data-order="1" -->
+            <div class="portfolio-item" data-order="1" draggable="true">
+                <div class="portfolio-img-container">
+                    <img src="logo_valery1.jpg" alt="A2 Softway">
+                </div>
+                <div class="portfolio-info">
+                    <h4>Distribuidor Valery Software</h4>
+                    <p>El mejor software empresarial para administrar tu negocio, una solución empresarial que se adapta a tus necesidades.</p>
+                </div>
+            </div>
+
+            <!-- TARJETA 2 - Reordenable: data-order="2" -->
+            <div class="portfolio-item" data-order="2" draggable="true">
+                <div class="portfolio-img-container">
+                    <img src="redes7.jpg" alt="Red corporativa">
+                </div>
+                <div class="portfolio-info">
+                    <h4>Red Corporativa Segura</h4>
+                    <p>Diseño e implementación de red con segmentación e instalación de camaras de seguridad.</p>
+                </div>
+            </div>
+
+            <!-- TARJETA 3 - Reordenable: data-order="3" -->
+            <div class="portfolio-item" data-order="3" draggable="true">
+                <div class="portfolio-img-container">
+                    <img src="fiscal.jpg" alt="Soluciones Fiscales">
+                </div>
+                <div class="portfolio-info">
+                    <h4>Soluciones Fiscales</h4>
+                    <p>Venta y Soporte especializado en equipos fiscales de the factory hka.</p>
+                </div>
+            </div>
+
+            <!-- TARJETA 4 - Reordenable: data-order="4" -->
+            <div class="portfolio-item" data-order="4" draggable="true">
+                <div class="portfolio-img-container">
+                    <img src="soporte1.jpg" alt="Soporte continuo">
+                </div>
+                <div class="portfolio-info">
+                    <h4>Soporte IT para PYME</h4>
+                    <p>Asistencia remota con tiempos de respuesta inmediata.</p>
+                </div>
+            </div>
+			 <!-- TARJETA 5 - Reordenable: data-order="5" -->
+            <div class="portfolio-item" data-order="5" draggable="true">
+                <div class="portfolio-img-container">
+                    <img src="mikrotik7.jpg" alt="Soluciones VPN">
+                </div>
+                <div class="portfolio-info">
+                    <h4>Soluciones VPN</h4>
+                    <p>Venta y Soporte especializado en equipos Mikrotik.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <section id="contacto" class="seccion container">
+        <h2 class="seccion-titulo">Envíame un mensaje</h2>
+        <p class="seccion-subtitulo">Contactanos directamente al correo lleonmbo@gmail.com y te responderé lo mas pronto posible antes.</p>
+        <form action="https://formspree.io/f/xbdbokad" method="POST" class="contacto-form">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <input type="email" name="_replyto" placeholder="Tu correo electrónico" required>
+            <textarea name="mensaje" rows="5" placeholder="Cuéntame en qué puedo ayudarte" required></textarea>
+            <button type="submit" class="btn btn-primario">Enviar mensaje <i class="fas fa-paper-plane"></i></button>
+        </form>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="seccion container">
+        <div class="sobre-mi">
+            <div class="sobre-mi-texto">
+                <h2>Lleon Tech Suport</h2>
+                <p>Soy un Profesional especializado con más de 30 años de experiencia, brindando soporte a empresas ofreciendo asesoría en Servidores, Redes informáticas, seguridad informática y Sistemas Administrativos. Me interesa poder resolver problemas críticos ofreciendo soluciones claras y mantener la tecnología al servicio de las personas.</p>
+                <p>Si tu necesidad es una solucion contáctame y te ofreceremos una Solucion.</p>
+                <p><strong>📍 Maracaibo, Venezuela</strong></p>
+            </div>
+            <div class="sobre-mi-imagen">
+                <img src="logo.jpg" alt="Lleon">
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <img src="logo.png" alt="Lleon Tech Support" class="logo-footer">
+        <div class="contacto-directo">
+            <i class="fas fa-phone-alt"></i> +58 414 3611387
+        </div>
+        <p>Tu Respuesta inmediata en una llamada</p>
+        <p style="margin-top:20px; font-size:0.85rem;">© 2025 Lleon Tech Suport · Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Script para scroll suave y drag & drop -->
+    <script>
+        // ===== SCROLL SUAVE =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // ===== DRAG AND DROP PARA PORTFOLIO =====
+        let draggedItem = null;
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        portfolioItems.forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                draggedItem = item;
+                item.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
+            });
+
+            item.addEventListener('dragend', (e) => {
+                item.classList.remove('dragging');
+                portfolioItems.forEach(i => i.classList.remove('drag-over'));
+            });
+
+            item.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+                if (item !== draggedItem) {
+                    item.classList.add('drag-over');
+                }
+            });
+
+            item.addEventListener('dragleave', (e) => {
+                item.classList.remove('drag-over');
+            });
+
+            item.addEventListener('drop', (e) => {
+                e.preventDefault();
+                if (item !== draggedItem) {
+                    // Intercambiar el order de ambos items
+                    const draggedOrder = draggedItem.getAttribute('data-order');
+                    const targetOrder = item.getAttribute('data-order');
+                    draggedItem.setAttribute('data-order', targetOrder);
+                    item.setAttribute('data-order', draggedOrder);
+                }
+                item.classList.remove('drag-over');
+            });
+        });
+
+        // ===== MENSAJE DE AYUDA (Opcional) =====
+        console.log('💡 Consejo: Puedes arrastrar y soltar las tarjetas para reordenarlas, o editar los atributos data-order en el HTML.');
+    </script>
+</body>
+</html>
