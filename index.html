@@ -361,6 +361,37 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             grid-auto-flow: dense;
+            /* Limitar el ancho máximo de las columnas */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 1200px) {
+            /* En pantallas grandes: máximo 4 columnas de ancho controlado */
+            .portfolio-grid {
+                grid-template-columns: repeat(4, minmax(250px, 280px));
+            }
+        }
+        
+        @media (min-width: 992px) and (max-width: 1199px) {
+            /* En pantallas medianas: máximo 3 columnas */
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 991px) {
+            /* En tablets: máximo 2 columnas */
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 767px) {
+            /* En móviles: 1 columna */
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* Permite reordenar items con data-order */
@@ -372,6 +403,8 @@
         .portfolio-item[data-order="6"] { order: 6; }
         .portfolio-item[data-order="7"] { order: 7; }
         .portfolio-item[data-order="8"] { order: 8; }
+        .portfolio-item[data-order="9"] { order: 9; }
+        .portfolio-item[data-order="10"] { order: 10; }
 
         .portfolio-item {
             border-radius: 12px;
@@ -755,7 +788,7 @@
             <div class="sobre-mi-texto">
                 <h2>Lleon Tech Suport</h2>
                 <p>Soy un Profesional especializado con más de 30 años de experiencia, brindando soporte a empresas ofreciendo asesoría en Servidores, Redes informáticas, seguridad informática y Sistemas Administrativos. Me interesa poder resolver problemas críticos ofreciendo soluciones claras y mantener la tecnología al servicio de las personas.</p>
-                <p>Si tu necesidad es una solucion contáctame y te ofreceremos una Solucion.</p>
+                <p>Si tu necesidad es una siolucion contáctame y te ofreceremos una Solucion.</p>
                 <p><strong>📍 Maracaibo, Venezuela</strong></p>
             </div>
             <div class="sobre-mi-imagen">
