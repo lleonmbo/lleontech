@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- ========================================================= -->
+<!-- CONFIGURACIÓN BÁSICA                                      -->
+<!-- ========================================================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ========================================================= -->
+<!-- OPTIMIZACIÓN SEO (Para Google y buscadores)                -->
+<!-- ========================================================= -->
+<!-- Título (Aparece en azul en Google) -->
+<title>Lleontech | Soporte IT, Redes, Servidores y Sistema Valery Soft</title>
+
+<!-- Meta Descripción (El resumen bajo el título en Google) -->
+<meta name="description" content="Servicios profesionales de soporte IT, servidores, redes informáticas, venta de equipos de computación y asistencia técnica para el sistema administrativo Valery Soft.">
+
+<!-- Palabras clave para los motores de búsqueda -->
+<meta name="keywords" content="Lleontech, soporte IT, servidores, redes informaticas, venta de computadoras, Valery Soft, soporte usuario Valery, mantenimiento de computadoras">
+<meta name="author" content="Lleontech">
+<meta name="robots" content="index, follow">
+
+<!-- URL Canónica -->
+<link rel="canonical" href="https://lleonmbo.github.io/lleontech/">
+
+<!-- ========================================================= -->
+<!-- VERIFICACIÓN DE GOOGLE SEARCH CONSOLE                     -->
+<!-- Remplaza el valor del content con el código de tu consola -->
+<!-- ========================================================= -->
+<meta name="google-site-verification" content="UzDW051_seiMCGIZMnfu7guSPJdRb162HbAT6StQ_Mw" />
+
+<!-- ========================================================= -->
+<!-- OPEN GRAPH (Para WhatsApp, LinkedIn, Facebook, etc.)      -->
+<!-- ========================================================= -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lleonmbo.github.io/lleontech/">
+<meta property="og:title" content="Lleontech - Soporte IT, Redes y Sistema Valery Soft">
+<meta property="og:description" content="Soluciones integrales de IT: mantenimiento de servidores, redes informáticas, venta de equipos y soporte especializado para el sistema administrativo Valery Soft.">
+<!-- Imagen que se mostrará en WhatsApp/Redes (Asegúrate de subir una imagen con este nombre en tu proyecto) -->
+<meta property="og:image" content="https://lleonmbo.github.io/lleontech/preview.png">
+
+<!-- ========================================================= -->
+<!-- TARJETAS DE X / TWITTER                                   -->
+<!-- ========================================================= -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://lleonmbo.github.io/lleontech/">
+<meta name="twitter:title" content="Lleontech - Soporte IT y Sistemas Administrativos">
+<meta name="twitter:description" content="Soporte técnico a usuarios Valery Soft, mantenimiento de servidores, infraestructura de redes y venta de equipos.">
+<meta name="twitter:image" content="https://lleonmbo.github.io/lleontech/preview.png">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lleon Tech Support | Soporte Profesional</title>
@@ -66,7 +114,16 @@
         }
 
         /* Logo redondo en header */
-        .logo img {
+        /* ===== LOGO + NOMBRE DE EMPRESA ===== */
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--azul-oscuro);
+        }
+
+        .brand img {
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -76,8 +133,28 @@
             transition: transform 0.3s;
         }
 
-        .logo img:hover {
+        .brand:hover img {
             transform: scale(1.05);
+        }
+
+        .brand-name {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.05;
+            white-space: nowrap;
+        }
+
+        .brand-name strong {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--azul-oscuro);
+        }
+
+        .brand-name small {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--naranja);
+            margin-top: 4px;
         }
 
         .nav-links {
@@ -584,6 +661,15 @@
             opacity: 0.8;
         }
 
+
+        /* ===== LOGO + NOMBRE DE EMPRESA EN FOOTER ===== */
+        .footer .brand-footer { display:inline-flex; align-items:center; justify-content:center; gap:12px; text-decoration:none; color:var(--blanco); margin-bottom:18px; }
+        .footer .brand-footer img { width:70px; height:70px; border-radius:50%; object-fit:cover; border:3px solid var(--naranja); box-shadow:0 4px 12px rgba(0,0,0,.3); transition:transform .3s; }
+        .footer .brand-footer:hover img { transform:scale(1.05); }
+        .footer .brand-footer-name { display:flex; flex-direction:column; align-items:flex-start; text-align:left; line-height:1.05; white-space:nowrap; }
+        .footer .brand-footer-name strong { font-size:1.2rem; font-weight:700; color:var(--blanco); }
+        .footer .brand-footer-name small { font-size:.9rem; font-weight:600; color:var(--naranja); margin-top:5px; }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-links {
@@ -616,8 +702,12 @@
     <!-- HEADER -->
     <header class="header">
         <nav class="nav">
-            <a href="#" class="logo">
+            <a href="#" class="brand" aria-label="Lleon Tech Support">
                 <img src="logo.png" alt="Lleon Tech Support">
+                <span class="brand-name">
+                    <strong>Lleon Tech</strong>
+                    <small>Support</small>
+                </span>
             </a>
             <ul class="nav-links">
                 <li><a href="#servicios">Servicios</a></li>
@@ -805,7 +895,7 @@
     <section id="sobre-mi" class="seccion container">
         <div class="sobre-mi">
             <div class="sobre-mi-texto">
-                <h2>Lleon Tech Suport</h2>
+                <h2>Lleon Tech Support</h2>
                 <p>Soy un Profesional especializado con más de 30 años de experiencia, brindando soporte a empresas ofreciendo asesoría en Servidores, Redes informáticas, seguridad informática y Sistemas Administrativos. Me interesa poder resolver problemas críticos ofreciendo soluciones claras y mantener la tecnología al servicio de las personas.</p>
                 <p>Si tu necesidad es una siolucion contáctame y te ofreceremos una Solucion.</p>
                 <p><strong>📍 Maracaibo, Venezuela</strong></p>
@@ -818,14 +908,19 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <img src="logo.png" alt="Lleon Tech Support" class="logo-footer">
-        <div class="contacto-directo">
+        <a href="#" class="brand-footer" aria-label="Lleon Tech Support">
+            <img src="logo.png" alt="Lleon Tech Support">
+            <span class="brand-footer-name">
+                <strong>Lleon Tech</strong>
+                <small>Support</small>
+            </span>
+        </a>
+               <div class="contacto-directo">
             <i class="fas fa-phone-alt"></i> +58 414 3611387
         </div>
         <p>Su Respuesta inmediata en una llamada</p>
-        <p style="margin-top:20px; font-size:0.85rem;">© 2025 Lleon Tech Suport · Todos los derechos reservados</p>
+        <p style="margin-top:20px; font-size:0.85rem;">© 2025 Lleon Tech Support · Todos los derechos reservados</p>
     </footer>
-
     <!-- Script para scroll suave y drag & drop -->
     <script>
         // ===== SCROLL SUAVE =====
